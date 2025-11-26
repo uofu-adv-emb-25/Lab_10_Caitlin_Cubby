@@ -8,7 +8,7 @@
 #include "pico/multicore.h"
 #include "pico/cyw43_arch.h"
 
-int main(void) {        // Consumes ~54-58 mA
+int main(void) {        // Consumes 0.12W, 0.042A at 3.0V 
     const uint LED_PIN = 21; 
 
     stdio_init_all();
