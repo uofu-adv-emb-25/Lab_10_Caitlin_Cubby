@@ -1,6 +1,6 @@
 # LAB 10 Caitlin & Cubby
 
-[![CMake](https://github.com/uofu-adv-emb-25/Lab_10_Caitlin_Cubby/workflows/main.yml/badge.svg?branch=main)](https://github.com/uofu-adv-emb-25/Lab_10_Caitlin_Cubby/actions/workflows/main.yml)
+![CMake](https://github.com/uofu-adv-emb-25/Lab_10_Caitlin_Cubby/actions/workflows/main.yml/badge.svg)
 
 Cubby and Caitlin's implementation of LAB 10. Power consumption measurements are shown in the table below. Each process was allowed to settle for several seconds before the measurement was recorded. (All taken with supply at 3.0V)
 
