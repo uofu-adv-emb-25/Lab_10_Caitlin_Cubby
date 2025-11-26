@@ -1,8 +1,8 @@
 # LAB 10 Caitlin & Cubby
 
-Status Badge: ![Lab10 Status](https://github.com/uofu-adv-emb-25/Lab_10_Caitlin_Cubby/actions/workflows/main.yml/badge.svg)
+Status Badge: ![dev Status](https://github.com/uofu-adv-emb-25/Lab_10_Caitlin_Cubby/actions/workflows/main.yml/badge.svg)
 
-Cubby and Caitlin's implementation of LAB 10. Power consumption measurements are shown in the table below. Each process was allowed to settle for several seconds bofore the measurement was recorded. (All taken with supply at 3.0V)
+Cubby and Caitlin's implementation of LAB 10. Power consumption measurements are shown in the table below. Each process was allowed to settle for several seconds before the measurement was recorded. (All taken with supply at 3.0V)
 
 ## Power Results:
 
