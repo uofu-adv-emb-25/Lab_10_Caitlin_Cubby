@@ -3,6 +3,10 @@ add_executable(blink
     blink.c
     )
 
+add_executable(blink_task
+    blink_task.c
+    )
+
 pico_set_program_name(blink "test")
 pico_set_program_version(blink "0.1")
 
@@ -11,8 +15,18 @@ pico_set_program_version(blink "0.1")
 pico_enable_stdio_uart(blink 0)
 pico_enable_stdio_usb(blink 1)
 
+pico_enable_stdio_uart(blink_task 1)
+pico_enable_stdio_usb(blink_task 0)
+
 # Add the libraries to the build
 target_link_libraries(blink PRIVATE
+  pico_stdlib
+  pico_multicore
+  pico_async_context_freertos
+  FreeRTOS-Kernel-Heap4
+)
+
+target_link_libraries(blink_task PRIVATE
   pico_stdlib
   pico_multicore
   pico_async_context_freertos
@@ -28,6 +42,13 @@ if(PICO_CYW43_SUPPORTED)
     )
 endif()
 
+if(PICO_CYW43_SUPPORTED)
+    # For led support on pico_w
+    target_link_libraries(blink_task PRIVATE
+        pico_cyw43_arch_none
+    )
+endif()
+
 # Another pico macro which generates the uf2 file in addition to the elf
 pico_add_extra_outputs(blink)
 
@@ -35,6 +56,7 @@ find_program(OPENOCD openocd)
 find_program(PICOTOOL picotool)
 
 add_custom_target(flash ${PICOTOOL} load -f $<TARGET_FILE:blink> DEPENDS blink)
+add_custom_target(flash_task ${PICOTOOL} load -f $<TARGET_FILE:blink_task> DEPENDS blink_task)
 
 add_custom_target(openocd_flash ${OPENOCD} -s ${OPENOCD_PATH} -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c 'adapter speed 5000; program "$<TARGET_FILE:blink>" verify reset exit' DEPENDS blink)
 
